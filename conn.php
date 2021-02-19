@@ -1,4 +1,4 @@
-<?php
+<?php       //data base conection
 
 	$con = mysqli_connect("localhost","root","");
 	$db = mysqli_select_db($con, "shub");
