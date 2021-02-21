@@ -16,7 +16,7 @@
 		if($row > 0){
 
 			//session variable
-			$_SESSION['user'] = $array['id'];
+			$_SESSION['admin'] = $array['id'];
 			$_SESSION['status'] = $array['status'];
 			header("location:home.php");
 			echo "<script> alert('loged in');</script>";
