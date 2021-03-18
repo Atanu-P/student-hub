@@ -6,6 +6,13 @@
 	//echo $id;
 ?>
 <h1>Update student details</h1><hr>
+<h1>Current details</h1>
+<h2>Id : <?= $_GET['id']?></h2>
+<h2>Name : <?= $_GET['fname']."-".$_GET['lname']?></h2>
+<h2>Gender : <?= $_GET['gender']?></h2>
+<h2>Birthdate : <?= $_GET['b_date']?></h2>
+<h2>Course & Year : <?= $_GET['c_id']." - ".$_GET['year']?></h2>
+<hr>
 
 <form action="" method="POST">
 	Student no :
@@ -25,18 +32,18 @@
 	Course : 
 	<select name="c_id" required="">
 		<option value="">select course</option>
-		<option value="bsc">B.Sc</option>
-		<option value="bca">B.Ca</option>
-		<option value="bcom">B.Com</option>
-		<option value="be">B.E</option>
-		<option value="bba">B.Ba</option>
-		<option value="ba">B.A</option>
-		<option value="msc">M.Sc</option>
-		<option value="mca">M.Ca</option>
-		<option value="mcom">M.Com</option>
-		<option value="me">M.E</option>
-		<option value="mba">M.Ba</option>
-		<option value="ma">M.A</option>
+		<option value="B.Sc">B.Sc</option>
+		<option value="B.Ca">B.Ca</option>
+		<option value="B.Com">B.Com</option>
+		<option value="B.E">B.E</option>
+		<option value="B.Ba">B.Ba</option>
+		<option value="B.A">B.A</option>
+		<option value="M.Sc">M.Sc</option>
+		<option value="M.Ca">M.Ca</option>
+		<option value="M.Com">M.Com</option>
+		<option value="M.E">M.E</option>
+		<option value="M.Ba">M.Ba</option>
+		<option value="M.A">M.A</option>
 	</select><br>
 	Year : 
 	<select name="year" required="required">
@@ -48,23 +55,26 @@
 	</select><br>
 	<!--Password :
 	<input type="Password" name="pass" required=""><br>-->
-	<input type="submit" name="submit" value="Submit">
+	<input type="submit" name="submit" value="Submit" onclick="if(confirm('Do you want to save this student data ?')) return true; else return false;">
 </form>
 <?php
 	
 	if(isset($_POST['submit'])){
 		$id = $_POST['id'];
-		$fname = $_POST['fname'];
-		$lname = $_POST['lname'];
+		$fname = ucfirst($_POST['fname']);
+		$lname = ucfirst($_POST['lname']);
 		$gender = $_POST['gender'];
 		$bdate = $_POST['b_date'];
 		$cid = $_POST['c_id'];
 		$year = $_POST['year'];
-		$pass = md5($_POST['lname']."".$_POST['id']);
+		$pass = md5(strtolower($_POST['lname'])."".$_POST['id']);
 
 		$update = "update student set id='$id', fname='$fname', lname='$lname', gender='$gender', b_date='$bdate', c_id='$cid', year='$year', pass='$pass' where id='$getid' ";
 		$query = mysqli_query($con, $update) or die(mysqli_error($con));
 
+		if($query == 1){
+			header('location:add_student.php');
+		}
 		//echo ($query == 1)? "inserted" : "retry";
 	}
 ?>

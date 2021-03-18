@@ -1,4 +1,4 @@
-<?php
+<?php // student login page
 	session_start();
 	require 'conn.php';
 
@@ -13,8 +13,10 @@
 		$row = mysqli_num_rows($query);
 
 		if($row > 0){
+			// session variable set for student 
 			$_SESSION['student'] = $fetch['id'];
-			echo "<script>alert('Student logged in.');</script>";
+			header('location:student_profile.php');
+			//echo "<script>alert('Student logged in.');</script>";
 		} else {
 			echo "<script>alert('Invalid username or password.');</script>";
 		}
