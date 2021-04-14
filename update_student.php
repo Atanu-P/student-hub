@@ -1,6 +1,7 @@
 <?php
 	require_once 'conn.php';
 
+	# update student details
 	$getid = $_GET['id'];
 
 	//echo $id;

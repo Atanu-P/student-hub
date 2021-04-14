@@ -1,9 +1,5 @@
 <?php
 	require 'conn.php';
-
-	
-
-
 ?>
 <h1>View assignment</h1><hr>
 

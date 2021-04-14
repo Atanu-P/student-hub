@@ -1,6 +1,7 @@
 <?php
 	require_once 'conn.php';
 
+	# delet student from table
 	$getid = $_GET['id'];
 
 	echo $id;

@@ -1,6 +1,7 @@
 <?php
 	require_once 'conn.php';
 
+	# remove file from folder and delet records in table
 	if(isset($_GET['f_id'])){
 		$f_id = $_GET['f_id'];
 		$select = "select * from storage where f_id='$f_id'";

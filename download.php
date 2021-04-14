@@ -1,4 +1,4 @@
-<?php // download student file page
+<?php // download assignment submited by student
 	require_once 'conn.php';
 
 	if(isset($_REQUEST['f_id'])){
@@ -11,6 +11,7 @@
 		$s_id = $fetch['s_id'];
 		$s_name = $fetch['s_name'];
 		// image file not opening after download
+		#script for downloading pdf file from server
 		header("Content-Disposition: attachment; filename=".$filename);
 		header("Content-Type: application/octet-stream;");
 		flush();
