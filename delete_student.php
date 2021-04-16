@@ -1,4 +1,5 @@
 <?php
+	require 'session_validator.php';
 	require_once 'conn.php';
 
 	# delet student from table

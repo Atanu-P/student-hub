@@ -1,4 +1,5 @@
 <?php
+	require "stu_session_validator.php";
 	require 'conn.php';
 	# view study material in table formate
 ?>

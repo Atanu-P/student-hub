@@ -1,3 +1,9 @@
+<?php
+	require 'session_validator.php';
+	require_once 'conn.php';
+?>
+
+
 <h1>Add student page</h1><hr>
 <!--button>Add Student</button-->
 

@@ -1,4 +1,5 @@
 <?php
+	require 'session_validator.php';
 	require_once 'conn.php';
 
 	# update student details

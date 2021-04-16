@@ -1,4 +1,5 @@
 <?php
+	require "stu_session_validator.php";
 	require_once 'conn.php';
 ?>
 <h1>Add study material</h1>

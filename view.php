@@ -1,5 +1,6 @@
 <?php
-	require 'conn.php';
+	require 'session_validator.php';
+	require_once 'conn.php';
 ?>
 <h1>View assignment</h1><hr>
 
