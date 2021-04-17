@@ -1,6 +1,14 @@
 <?php
-	require "stu_session_validator.php";
-	require 'conn.php';
+	session_start();
+
+	if(!isset($_SESSION['student'])){
+		//header(); redirect to that page if not login
+		echo "<script>
+				alert('Your are not logged in.');
+				window.location.href='student_login.php';
+		</script>";
+	}
+	require "conn.php";
 	# view study material in table formate
 ?>
 
