@@ -53,7 +53,7 @@
 </form>
 
 <?php //insert student detail to db
-	require_once 'conn.php';
+	#require_once 'conn.php';
 
 	if(isset($_POST['submit'])){
 		$id = $_POST['id'];
@@ -112,6 +112,7 @@
 				<!-- button links to delete student page after confermation -->
 				<button ><a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" >Delete</a></button>
 				
+				<button><a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" >View Assignment</a></button>
 			</td>
 		</tr>
 	<?php  } /// while loop end ////  ?>
