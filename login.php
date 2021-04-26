@@ -18,6 +18,7 @@
 			//session variable
 			$_SESSION['admin'] = $array['id'];
 			$_SESSION['status'] = $array['status'];
+			$_SESSION['username'] = $array['username'];
 			header("location:home.php");
 			echo "<script> alert('loged in');</script>";
 		} else {

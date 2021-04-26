@@ -1,14 +1,5 @@
 <?php
-	session_start();
-
-	if(!isset($_SESSION['student'])){
-		//header(); redirect to that page if not login
-		echo "<script>
-				alert('Your are not logged in.');
-				window.location.href='student_login.php';
-		</script>";
-	}
-	
+	require 'session_validator.php';	
 	require_once 'conn.php';
 ?>
 <h1>Add study material</h1>
@@ -41,7 +32,7 @@
 		
 		$c_id = $_POST['c_id'];						  	// course id
 		$title = $_POST['title'];						// title or topic name
-		
+		$username = $_SESSION['username'];
 		$name = $_FILES['file']['name'];      			// file name
 		$type = $_FILES['file']['type'];      			// file type
 		$temp = $_FILES['file']['tmp_name'];  			// temp file name
@@ -72,7 +63,7 @@
 			} else {
 
 				if(move_uploaded_file($temp, $location)){
-					$insert = "insert into material values('','$name','$type','$title','$c_id','$date')";
+					$insert = "insert into material values('','$name','$type','$title','$c_id','$date' ,'$username')";
 					mysqli_query($con, $insert);
 					header('location:add_study_material.php'); //change the page redirect later
 				}
@@ -88,6 +79,7 @@
 		<th>Course</th>
 		<th>Title</th>
 		<th>File Name</th>
+		<th>Uploaded by</th>
 		<th>Option</th>
 	</thead>
 	<tbody>
@@ -100,6 +92,7 @@
 			<td><?= $fetch['c_id']?></td>
 			<td><?= $fetch['title']?></td>
 			<td><?= $fetch['name']?></td>
+			<td><?= $fetch['upload_by']?></td>
 			<td><button><a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;">Remove</a></button></td>
 		</tr>
 		<?php
