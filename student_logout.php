@@ -4,7 +4,7 @@
 	unset($_SESSION['student']); 
 	echo "<script>
 			alert('Successfully logged out.');
-			window.location.href='student_login.php';
+			window.location.href='index.php';
 	</script>";
 	//header(); redirect to page after logout
 ?>
