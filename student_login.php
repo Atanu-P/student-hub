@@ -22,11 +22,4 @@
 		}
 	}
 ?>
-<h1>Student Log in</h1><hr>
-<form method="post">
-	Student Id : 
-	<input type="number" name="id" placeholder="Enter Id" required>
-	Password : 
-	<input type="password" name="pass" placeholder="Enter Password" required>
-	<button name="submit">Log In</button>
-</form>
+

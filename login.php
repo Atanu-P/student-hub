@@ -20,17 +20,11 @@
 			$_SESSION['status'] = $array['status'];
 			$_SESSION['username'] = $array['username'];
 			header("location:home.php");
-			echo "<script> alert('loged in');</script>";
+			echo "<script> alert('Loged in');</script>";
 		} else {
 			echo "<script> alert('Invalid username or password');</script>";
 ;		}
 	}
 
 ?>
-<h1>Log In</h1><br><hr>
-<form method="POST">
-	
-	Username : <input type="Username" name="username" required>
-	Password : <input type="Password" name="pass" required>
-	<input type="submit" name="submit" value="Log In">
-</form>
+
