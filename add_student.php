@@ -2,56 +2,107 @@
 	require 'session_validator.php';
 	require_once 'conn.php';
 ?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <?php include "stylesheet.php";?>
+    <style type="text/css">
+		table.dataTable thead .sorting:after,
+		table.dataTable thead .sorting:before,
+		table.dataTable thead .sorting_asc:after,
+		table.dataTable thead .sorting_asc:before,
+		table.dataTable thead .sorting_asc_disabled:after,
+		table.dataTable thead .sorting_asc_disabled:before,
+		table.dataTable thead .sorting_desc:after,
+		table.dataTable thead .sorting_desc:before,
+		table.dataTable thead .sorting_desc_disabled:after,
+		table.dataTable thead .sorting_desc_disabled:before {
+		bottom: .5em;
+		}
+    </style>
 
-<h1>Add student page</h1><hr>
+    <title>S-Hub | Add New Student</title>
+  </head>
+  <body>
+
+	<?php
+	include_once "nav_admin.php";
+	?>	
+	
 <!--button>Add Student</button-->
 
-<!-- Add student form -->
-<form action="" method="POST">
-	Student no :
-	<input type="number" name="id" required="required"><br>
-	First Name :
-	<input type="text" name="fname" required=""><br>
-	Last Name :
-	<input type="text" name="lname" required=""><br>
-	Gender :
-	<select name="gender" required="">
-		<option value="">select</option>
-		<option value="m">Male</option>
-		<option value="f">Female</option>
-	</select><br>
-	Birthdate : 
-	<input type="date" name="b_date" required=""><br>
-	Course : 
-	<select name="c_id" required="">
-		<option value="">select course</option>
-		<option value="B.Sc">B.Sc</option>
-		<option value="B.Ca">B.Ca</option>
-		<option value="B.Com">B.Com</option>
-		<option value="B.E">B.E</option>
-		<option value="B.Ba">B.Ba</option>
-		<option value="B.A">B.A</option>
-		<option value="M.Sc">M.Sc</option>
-		<option value="M.Ca">M.Ca</option>
-		<option value="M.Com">M.Com</option>
-		<option value="M.E">M.E</option>
-		<option value="M.Ba">M.Ba</option>
-		<option value="M.A">M.A</option>
-	</select><br>
-	Year : 
-	<select name="year" required="required">
-		<option value="">select year</option>
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-	</select><br>
-	<!--Password :
-	<input type="Password" name="pass" required=""><br>-->
-	<input type="submit" name="submit" value="Submit">
-</form>
-
+<div class="container">
+	<div class="card p-4 mb-4">
+		<h5 class="card-title text-center">Add New Student</h5>
+	<!-- Add student form -->
+	<form action="" method="POST">
+	<div class="form-row">
+		<div class="form-group col-md-4">
+			<label for="" class="sr-only">Student no :</label>
+			<input type="number" name="id" class="form-control form-control-sm" placeholder="Stu Id" required="required">
+		</div><br>
+		<div class="form-group col-md-4">
+			<label for="" class="sr-only">First Name :</label>
+			<input type="text" name="fname" class="form-control form-control-sm" placeholder="First Name" required="">
+		</div><br>
+		<div class="form-group col-md-4">
+			<label for="" class="sr-only">Last Name :</label>
+			<input type="text" name="lname" class="form-control form-control-sm" placeholder="Last Name" required="">
+		</div><br>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-3">
+			<label for="" class="sr-only">Gender :</label>
+			<select name="gender" class="form-control form-control-sm" required="">
+				<option value="">Select Gender</option>
+				<option value="m">Male</option>
+				<option value="f">Female</option>
+			</select>
+		</div><br>
+		<div class="form-group col-md-3">
+			<label for="" class="sr-only">Birth-date : </label>
+			<input type="date" name="b_date" class="form-control form-control-sm" required="">
+		</div><br>
+		<div class="form-group col-md-3">
+			<label for="" class="sr-only">Course : </label>
+			<select name="c_id" class="form-control form-control-sm" required="">
+				<option value="">Select Course</option>
+				<option value="B.Sc">B.Sc</option>
+				<option value="B.Ca">B.Ca</option>
+				<option value="B.Com">B.Com</option>
+				<option value="B.E">B.E</option>
+				<option value="B.Ba">B.Ba</option>
+				<option value="B.A">B.A</option>
+				<option value="M.Sc">M.Sc</option>
+				<option value="M.Ca">M.Ca</option>
+				<option value="M.Com">M.Com</option>
+				<option value="M.E">M.E</option>
+				<option value="M.Ba">M.Ba</option>
+				<option value="M.A">M.A</option>
+			</select>
+		</div><br>
+		<div class="form-group col-md-3">
+			<label for="" class="sr-only">Year : </label>
+			<select name="year" class="form-control form-control-sm" required="required">
+				<option value="">Select Year</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select>
+		</div>
+		<!--Password :
+		<input type="Password" name="pass" required=""><br>-->
+	</div>
+	
+		<button type="submit" name="submit" class="btn btn-sm btn-info btn-block">Add Student</button>
+	</form>
+	</div>
 <?php //insert student detail to db
 	#require_once 'conn.php';
 
@@ -74,21 +125,23 @@
 
 	//var_dump($insert);
 ?>
-<hr>
-
-
+<!--hr-->
+<div class="row"><div class="col">
+<div class="card p-4">
+	<h5 class="card-title text-center">List of Students</h5>
+<div class="table-responsive-sm">
 <!-- Display student data in table formate -->
-<table align="center" border="2px" cellpadding="10px">
-	<thead>
-		<tr>
-			<th>Stu Id</th>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>Gender</th>
-			<th>Birthdate</th>
-			<th>Course</th>
-			<th>Year</th>
-			<th>Action</th>
+<table id="stu_table" class="table table-striped table-bordered table-sm"  border="2px" >
+	<thead class="thead-dark">
+		<tr align="center">
+			<th class="th-sm">Stu Id</th>
+			<th class="th-sm">Firstame</th>
+			<th class="th-sm">Lastname</th>
+			<th class="th-sm">Gender</th>
+			<th class="th-sm">Birthdate</th>
+			<th class="th-sm">Course</th>
+			<th class="th-sm">Year</th>
+			<th class="th-sm">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -97,7 +150,7 @@
 		//// while loop start ////
 		while($fetch = mysqli_fetch_array($query)){
 	?>
-		<tr>
+		<tr align="center">
 			<td><?php echo $fetch['id'] ?></td>
 			<td><?php echo $fetch['fname'] ?></td>
 			<td><?php echo $fetch['lname'] ?></td>
@@ -118,3 +171,21 @@
 	<?php  } /// while loop end ////  ?>
 	</tbody>
 </table>
+</div>
+</div>
+</div></div>
+
+<?php include "script.php";?>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#stu_table').DataTable();
+		$('.dataTables_length').addClass('bs-select');
+
+		$('#adminNavbar .navbar-nav a').on('click', function(){
+			$('#adminNavbar .navbar-nav').find('li.active').removeClass('active');
+			$(this).parent('li').addClass('active');
+		});
+	});
+</script>
+</body>
+</html>
