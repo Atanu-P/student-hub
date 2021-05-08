@@ -146,7 +146,7 @@
 	</thead>
 	<tbody>
 	<?php
-		$query = mysqli_query($con, "select * from student") or die(mysqli_error($con));
+		$query = mysqli_query($con, "select * from student order by j_date desc") or die(mysqli_error($con));
 		//// while loop start ////
 		while($fetch = mysqli_fetch_array($query)){
 	?>
@@ -160,12 +160,12 @@
 			<td><?php echo $fetch['year'] ?></td>
 			<td>
 				<!-- button redirect to update student page -->
-				<button><a href="update_student.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>&lname=<?= $fetch['lname']?>&gender=<?= $fetch['gender']?>&b_date=<?= $fetch['b_date']?>&c_id=<?= $fetch['c_id']?>&year=<?= $fetch['year']?>"  onclick="S">Update</a></button>
+				<a href="update_student.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>&lname=<?= $fetch['lname']?>&gender=<?= $fetch['gender']?>&b_date=<?= $fetch['b_date']?>&c_id=<?= $fetch['c_id']?>&year=<?= $fetch['year']?>"  onclick="" class="btn btn-sm btn-mdb-color">Update</a>
 
 				<!-- button links to delete student page after confermation -->
-				<button ><a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" >Delete</a></button>
+				<a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" class="btn btn-sm btn-danger">Delete</a>
 				
-				<button><a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" >View Assignment</a></button>
+				<a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" class="btn btn-sm btn-dark">View Assignment</a>
 			</td>
 		</tr>
 	<?php  } /// while loop end ////  ?>
