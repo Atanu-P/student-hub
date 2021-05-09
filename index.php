@@ -25,7 +25,7 @@
     			<!-- admin or teacher login form-->
 				<form action="login.php" method="POST" class="form-signin">
 					<img class="mb-4" src="svgs\solid\portrait.svg" alt="" width="72" height="72" align="center">
-					<h1 class="h3 mb-3 font-weight-normal">Adminstrator Log-In</h1>
+					<h1 class="h3 mb-3 font-weight-normal">Adminstrator / Teacher Log-In</h1>
 					<label for="" class="sr-only">Username :</label>
 					<input type="Username" name="username" placeholder="Username" class="form-control" required autofocus><br>
 					<label for="" class="sr-only">Password :</label>

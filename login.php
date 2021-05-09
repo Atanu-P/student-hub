@@ -22,7 +22,9 @@
 			header("location:home.php");
 			echo "<script> alert('Loged in');</script>";
 		} else {
-			echo "<script> alert('Invalid username or password');</script>";
+			echo "<script> alert('Invalid username or password');
+							window.location.href='index.php';
+			</script>";
 ;		}
 	}
 
