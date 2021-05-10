@@ -2,19 +2,8 @@
 	session_start();
 	//require 'session_validator.php';
 	require_once 'conn.php';
-?>
-<form method="post">
-	old-password :
-	<input type="password" name="oldpass" required>
-	new-password : 
-	<input type="password" name="newpass" required>
-	confirm-password : 
-	<input type="password" name="conpass" required>
-	<input type="submit" name="submit" value="Update password">
-</form>
 
-<?php
-	
+
 	if(isset($_POST['submit'])){
 		$oldpass = md5($_POST['oldpass']);
 		$newpass = md5($_POST['newpass']);
@@ -50,3 +39,68 @@
 
 	}
 ?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <?php include "stylesheet.php";?>
+    <style type="text/css">
+		table.dataTable thead .sorting:after,
+		table.dataTable thead .sorting:before,
+		table.dataTable thead .sorting_asc:after,
+		table.dataTable thead .sorting_asc:before,
+		table.dataTable thead .sorting_asc_disabled:after,
+		table.dataTable thead .sorting_asc_disabled:before,
+		table.dataTable thead .sorting_desc:after,
+		table.dataTable thead .sorting_desc:before,
+		table.dataTable thead .sorting_desc_disabled:after,
+		table.dataTable thead .sorting_desc_disabled:before {
+		bottom: .5em;
+		}
+    </style>
+
+    <title>S-Hub | Change Password</title>
+  </head>
+  <body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-sm-6">
+				<div class="card p-4 mb-4 mt-5">
+					<h5 class="card-title text-center mb-5">Change Password</h5>
+		
+					<form method="post">
+					<div class="form-row">	
+						<div class="form-group col">	
+							<label for="" class="sr-only">Old-password :</label>
+							<input type="password" name="oldpass" placeholder="Old Password" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-row">	
+						<div class="form-group col">
+							<label for="" class="sr-only">New-password :</label> 
+							<input type="password" name="newpass" placeholder="New Password" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-row">	
+						<div class="form-group col">	
+							<label for="" class="sr-only">Confirm-password :</label>
+							<input type="password" name="conpass" placeholder="Confirm Password" class="form-control" required>
+						</div>
+					</div>	
+						
+					<button type="submit" name="submit" class="btn btn-primary btn-block">Update password</button>
+						
+					</div>	
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php include "script.php";?>
+
+</body>
+</html>
