@@ -29,7 +29,7 @@
     <title>S-Hub | Update Admin</title>
   </head>
   <body>
-<h1>Update detail</h1><hr>
+
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-sm-6">
