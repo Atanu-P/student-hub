@@ -56,6 +56,7 @@
 					<th class="th-sm">Birthdate</th>
 					<th class="th-sm">Course</th>
 					<th class="th-sm">Year</th>
+					<th class="th-sm">Join Date</th>
 				</tr>
 			</thead>
 			<tbody >
@@ -67,6 +68,7 @@
 					<td><?= $fetch_detail['b_date']?></td>
 					<td><?= $fetch_detail['c_id']?></td>
 					<td><?= $fetch_detail['year']?></td>
+					<td><?= date_format(date_create($fetch_detail['j_date']),"d-m-Y");?></td>
 				</tr>
 			</tbody>
 		</table>
@@ -84,7 +86,7 @@
 			<table class="table  table-bordered table-sm  table-hover" align="center" cellpadding="9" border="1">
 				<thead class="thead-light" align="center">
 					<tr >
-						<th>#</th>
+						<th></th>
 						<th>Date Uploaded</th>
 						<th>Filename</th>
 						<th>Download</th>
@@ -99,7 +101,7 @@
 					?>
 					<tr align="center">
 						<td><?= $i++?></td>
-						<td><?= $fetch['date']?></td>
+						<td><?= date_format(date_create($fetch['date']),"d-m-Y g:i A");?></td>
 						<td><?= $fetch['filename']?></td>			
 						<td><a href="download.php?f_id=<?= $fetch['f_id']?>"  class="btn btn-sm btn-mdb-color" ><i class="fas fa-download"></i></a></td>
 					</tr>
@@ -110,3 +112,7 @@
 			</div>		
 		</div>	
 	</div>	
+<?php include "script.php";?>
+
+</body>
+</html>

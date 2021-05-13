@@ -57,7 +57,7 @@
 					while ($fetch = mysqli_fetch_array($query)) {
 				?>
 				<tr align="center">
-					<td><?= $fetch['date']?></td>
+					<td><?= date_format(date_create($fetch['date']),"d-m-Y g:i A");?></td>
 					<td><?= $fetch['s_id']?></td>
 					<td><?= $fetch['s_name']?></td>
 					<td><?= $fetch['c_id']?></td>

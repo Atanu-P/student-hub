@@ -78,11 +78,8 @@
 				
 			</form>
 		</div>
-		
-	</div>
+		</div>
 
-
-	
 		<div class="col-md-7" >
 			<div class="card p-4 mb-4">
 				<h4 class="card-title text-center">Your Assignments</h4>
@@ -115,7 +112,7 @@
 			</table>
 			</div>
 		</div>
-		</div>
+	</div>
 </div>
 <?php include "script.php";?>
 

@@ -13,3 +13,13 @@
 <!-- Material Design for Bootstrap -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <script type="text/javascript" src="js/datatables.min.js"></script>
+
+<script type="text/javascript" >
+	$(document).ready(function () {
+		$('#adminNavbar .navbar-nav a').on('click', function(){
+			$('#adminNavbar .navbar-nav').find('li.active').removeClass('active');
+			$(this).parent('li').addClass('active');
+		});
+	});
+</script>
+

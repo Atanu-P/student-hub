@@ -6,14 +6,14 @@
   		<div class="collapse navbar-collapse" id="navbar">
   			<ul class="navbar-nav mr-auto mt-lg-0">
   				
-  				<li class="nav-item active">
+  				<li class="nav-item">
   					<a class="nav-link" href="student_profile.php">Profile</a>
   				</li>
   				<li class="nav-item">
   					<a class="nav-link" href="view_study_material.php">Study Material</a>
   				</li>
   				<li class="nav-item">
-  					<a class="nav-link" href="#">Live</a>
+  					<a class="nav-link" href="v_call_stu.php">Live Chat</a>
   				</li>
   			</ul>
 

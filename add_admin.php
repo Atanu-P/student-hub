@@ -108,3 +108,7 @@
 		</div>
 	</div>
 </div>
+<?php include "script.php";?>
+
+</body>
+</html>

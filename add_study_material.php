@@ -141,21 +141,25 @@
 			<th class="th-sm">Title</th>
 			<th class="th-sm">File Name</th>
 			<th class="th-sm">Uploaded by</th>
-			<th class="th-sm">Remove</th>
+			<th class="th-sm">Options</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php
+			
 			$query = mysqli_query($con, "select * from material");
 			while ($fetch = mysqli_fetch_array($query)) {
 		?>
 		<tr align="center">
-			<td><?= $fetch['date']?></td>
+			<td><?= date_format(date_create($fetch['date']),"d-m-Y g:i A");?></td>
 			<td><?= $fetch['c_id']?></td>
 			<td><?= $fetch['title']?></td>
 			<td><?= $fetch['name']?></td>
 			<td><?= $fetch['upload_by']?></td>
-			<td><a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a></td>
+			<td><a href="download_study_material.php?id=<?= $fetch['id']?>" class="btn btn-sm btn-blue"><i class="fas fa-cloud-download-alt"></i></a>
+				<?php if($_SESSION['status'] == 'admin'){?>
+					<a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+				<?php }else{ if($_SESSION['username'] == $fetch['upload_by']){?><a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a><?php } }?></td><!-- delete button-->
 		</tr>
 		<?php
 			}
@@ -173,10 +177,7 @@
 		$('#material').DataTable();
 		$('.dataTables_length').addClass('bs-select');
 
-		$('#adminNavbar .navbar-nav a').on('click', function(){
-			$('#adminNavbar .navbar-nav').find('li.active').removeClass('active');
-			$(this).parent('li').addClass('active');
-		});
+		
 	});
 </script>
 

@@ -13,15 +13,15 @@
   <body>
     
 
-    <div class="container">
+    <div class="container mt-1">
     	<div class="jumbotron">
     		<h1 class="display-4" align="center">Welcome to</h1>
     		<h1 class="display-1" align="center">Student-HUB</h1>
-    		<hr class="my-4">
+    		
     		<p class="lead"></p>
     	</div>
     	<div class="row">
-    		<div class="col text-center">
+    		<div class="col-sm text-center">
     			<!-- admin or teacher login form-->
 				<form action="login.php" method="POST" class="form-signin">
 					<img class="mb-4" src="svgs\solid\portrait.svg" alt="" width="72" height="72" align="center">
@@ -33,7 +33,7 @@
 					<button type="submit" name="submit" class="btn btn-lg btn-primary btn-block">Login</button>
 				</form>
     		</div>
-    		<div class="col text-center">
+    		<div class="col-sm text-center">
     			<!-- student login form-->
 				<form action="student_login.php" method="post" class="form-signin">
 					<img class="mb-4" src="svgs\solid\user-friends.svg" alt="" width="72" height="72" align="center">
@@ -46,6 +46,15 @@
 				</form>
     		</div>
     	</div>
+
+    	<div class="row mt-5">
+    		<div class="col text-center">
+    			<footer class="page-footer font-small"> 
+    			 <div class="footer-copyright text-center py-3 white"><p class="text-dark">Made by Atanu-Pal</p>
+				 </div>
+  				</footer>
+			</div>
+		</div>
     </div>
   
 

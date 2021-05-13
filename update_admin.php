@@ -3,16 +3,22 @@
 	require_once 'conn.php';
 
 	if(isset($_POST['submit'])){
-		$fname = $_POST['fname'];
-		$lname = $_POST['lname'];
+		$fname = ucfirst($_POST['fname']);
+		$lname = ucfirst($_POST['lname']);
+		$user = strtolower($_POST['user']);
 
 		$id = $_SESSION['admin'];
 		$status = $_SESSION['status'];
+		$olduser = $_POST['olduser'];
 
 		$update = "update admin set fname='$fname', lname='$lname', username='$user' where id='$id' and status='$status'";
+		$update2 = "update material set upload_by='$user' where upload_by='$olduser'";
 		$query = mysqli_query($con, $update) or die(mysqli_error($con));
+		$query2 = mysqli_query($con, $update2) or die(mysqli_error($con));
 		if($query == 1){
+			$_SESSION['username'] = $user;
 			header('location:home.php');
+
 		}
 	}
 ?>
@@ -54,6 +60,7 @@
 									<input type="text" name="user" placeholder="User-name" class="form-control" required>
 								</div>
 							</div>
+							<input type="hidden" name="olduser" value="<?= $_SESSION['username']?>">
 									<br>
 									<button type="submit" name="submit" class="btn btn-primary btn-block">Update</button>
 

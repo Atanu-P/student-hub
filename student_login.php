@@ -15,6 +15,7 @@
 		if($row > 0){
 			// session variable set for student 
 			$_SESSION['student'] = $fetch['id'];
+			$_SESSION['name'] = $fetch['fname'];
 			header('location:student_profile.php');
 			//echo "<script>alert('Student logged in.');</script>";
 		} else {
