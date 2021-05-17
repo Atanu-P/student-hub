@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <?php include_once "stylesheet.php";?>
 
-    <title></title>
+    <title>S-HUB | Log In</title>
   </head>
   <body>
     

@@ -38,7 +38,7 @@
 	<div class="card p-4 mb-4">
 	<div class="row">
 	<div class="col">
-		<h5 class="card-title text-center">View assignments submitted by student</h5>
+		<h5 class="card-title text-center">Assignments submitted by students</h5>
 		<table id="viewAssignment"  class="table table-striped table-bordered table-sm" >
 			<thead class="thead-dark">
 				<tr align="center">

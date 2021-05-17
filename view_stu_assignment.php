@@ -94,7 +94,7 @@
 				</thead>
 				<tbody >
 					<?php
-						$select = "select * from storage where s_id='$id' and s_name='$fname'";
+						$select = "select * from storage where s_id='$id'";
 						$query = mysqli_query($con, $select);
 						$i =1; 
 						while($fetch = mysqli_fetch_array($query)){

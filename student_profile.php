@@ -53,11 +53,12 @@
 		<div class="col-md-5" >
 			<div class="card p-4 mb-4">
 			<h3 class="text-center"><?= $fetch['fname']." ".$fetch['lname']?></h3><hr>
-			<h5 class="text-center">Student Id : <?= $fetch['id']?></h5>
+			<h5 class="text-left"> Student Id : <?= $fetch['id']?></h5>
 			
-			<h5 class="text-center" >Gender : <?= $fetch['gender']?></h5>
-			<h5 class="text-center">Birthdate : <?= $fetch['b_date']?></h5>
-			<h5 class="text-center">Course & Year : <?= $fetch['c_id']." - ".$fetch['year']?>th</h5>
+			<h5 class="text-left" >Gender : <?= $fetch['gender']?></h5>
+			<h5 class="text-left">Birthdate : <?= $fetch['b_date']?></h5>
+			<h5 class="text-left">Course & Year : <?= $fetch['c_id']." - ".$fetch['year']?>th</h5>
+			<h5 class="text-left">Teacher : <?= $fetch['teacher']?></h5>
 
 			<hr>
 			<!-- form for adding file by student -->

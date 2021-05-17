@@ -14,11 +14,12 @@
 		$cid = $_POST['c_id'];
 		$year = $_POST['year'];
 		$pass = md5(strtolower($_POST['lname'])."".$_POST['id']);
+		$teacher = $_POST['teacher'];
 
 		$oldid=  $_GET['id'];
 		$s_name =  $fname." ".$lname;
 		
-		$update = "update student set id='$id', fname='$fname', lname='$lname', gender='$gender', b_date='$bdate', c_id='$cid', year='$year', pass='$pass' where id='$getid' ";
+		$update = "update student set id='$id', fname='$fname', lname='$lname', gender='$gender', b_date='$bdate', c_id='$cid', year='$year', pass='$pass', teacher='$teacher' where id='$getid' ";
 		
 		$update2 = "update storage set s_id='$id', s_name='$s_name', c_id='$cid' where s_id='$oldid'";
 		
@@ -130,7 +131,7 @@
 			<label for="" class="sr-only">Birth-date : </label>
 			<input type="date" name="b_date" class="form-control form-control-sm" value="<?= $_GET['b_date'];?>" required="">
 		</div><br>
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-2">
 			<label for="" class="sr-only">Course : </label>
 			<select name="c_id" class="form-control form-control-sm" required="">
 				<option value="">Select Course</option>
@@ -148,7 +149,7 @@
 				<option value="M.A">M.A</option>
 			</select>
 		</div><br>
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-2">
 			<label for="" class="sr-only">Year : </label>
 			<select name="year" class="form-control form-control-sm" required="required">
 				<option value="">Select Year</option>
@@ -156,6 +157,19 @@
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
+			</select>
+		</div>
+		<div class="form-group col-md-2">
+			<label for="" class="sr-only">Change Teacher : </label>
+			<select name="teacher" class="form-control form-control-sm" required="required">
+				<option value="">Select Teacher</option>
+				<?php 
+					$select = mysqli_query($con, "select  username from admin");
+
+					while ($arr = mysqli_fetch_array($select)) {
+				?>
+				<option value="<?= $arr['username']; ?>"><?= ucfirst($arr['username']); ?></option>
+				<?php  } ?>
 			</select>
 		</div>
 		<!--Password :

@@ -116,8 +116,9 @@
 		$year = $_POST['year'];
 		$pass = md5(strtolower($_POST['lname'])."".$_POST['id']);
 		$j_date = date("Y-m-d H:i:s");
+		$teacher = strtolower($_SESSION['username']);
 
-		$insert = "INSERT INTO student VALUES('$id', '$fname', '$lname', '$gender', '$bdate', '$cid', '$year', '$pass' ,'$j_date')";
+		$insert = "INSERT INTO student VALUES('$id', '$fname', '$lname', '$gender', '$bdate', '$cid', '$year', '$pass' ,'$j_date','$teacher')";
 		$query = mysqli_query($con, $insert) or die(mysqli_error($con));
 
 		//echo ($query == 1)? "inserted" : "retry";
@@ -128,8 +129,14 @@
 <!--hr-->
 <div class="row"><div class="col">
 <div class="card p-4">
-	<h5 class="card-title text-center">List of Students</h5>
-<div class="table-responsive-sm">
+	
+		<div class="btn-group mx-auto" role="group">
+			  <a  type="button" class="btn btn-green" href="add_student.php" >Your Students</a>
+			  <a  type="button" class="btn btn-grey	" href="all_student.php">All students</a>
+		</div>
+		
+<div id="table" class="table-responsive-sm">
+	<h5 class="card-title text-center mt-4">Your Students</h5>
 <!-- Display student data in table formate -->
 <table id="stu_table" class="table table-striped table-bordered table-sm"  border="2px" >
 	<thead class="thead-dark">
@@ -144,9 +151,12 @@
 			<th class="th-sm">Action</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="table_body">
 	<?php
-		$query = mysqli_query($con, "select * from student") or die(mysqli_error($con));
+		
+		$user = $_SESSION['username'];
+		$query = mysqli_query($con, "select * from student where teacher='$user'") or die(mysqli_error($con));
+		
 		//// while loop start ////
 		while($fetch = mysqli_fetch_array($query)){
 	?>
@@ -181,10 +191,7 @@
 		$('#stu_table').DataTable();
 		$('.dataTables_length').addClass('bs-select');
 
-		$('#adminNavbar .navbar-nav a').on('click', function(){
-			$('#adminNavbar .navbar-nav').find('li.active').removeClass('active');
-			$(this).parent('li').addClass('active');
-		});
+		
 	});
 </script>
 </body>
