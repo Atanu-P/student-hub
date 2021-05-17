@@ -33,19 +33,19 @@
 	<div class="row">
 	<div class="col" align="center">
 	
-	<a href="reset_pass.php" onclick="if(confirm('Are you sure you want to change the password ?')) return true; else return false;" class="btn btn-sm btn-info" target="_blank">Change Password</a>
+	<a href="reset_pass.php" onclick="if(confirm('Are you sure you want to change the password ?')) return true; else return false;" class="btn btn-sm btn-info" target="_blank" title="Click here to change your password">Change Password</a>
 
-  <a href="update_admin.php" onclick="if(confirm('Are you sure you want to update detail ?')) return true; else return false;" class="btn btn-sm btn-info" target="_blank">Update Details</a>
+  <a href="update_admin.php" onclick="if(confirm('Are you sure you want to update detail ?')) return true; else return false;" class="btn btn-sm btn-info" target="_blank" title="Click here to update your Information">Update Details</a>
 
 <?php
 	if($_SESSION['status']=='admin'){
 ?>
-  <a href="add_admin.php" onclick="if(confirm('Are you sure you want to add new admin or teacher ?')) return true; else return false;" class="btn btn-sm btn-info" target="_blank">Add Admin / Teacher</a>
+  <a href="add_admin.php" onclick="if(confirm('Are you sure you want to add new admin or teacher ?')) return true; else return false;" class="btn btn-sm btn-info" target="_blank" title="Click here to add new Admin or Teacher ">Add Admin / Teacher</a>
 <?php
 	} 
 ?>
   
-  <a href="logout.php" onclick="if(confirm('Are you sure you want to logout ?')) return true; else return false;" class="btn btn-sm btn-danger">Logout</a>
+  <a href="logout.php" onclick="if(confirm('Are you sure you want to logout ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Logout">Logout</a>
 	
 	</div>
 	</div>

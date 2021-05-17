@@ -156,10 +156,10 @@
 			<td><?= $fetch['title']?></td>
 			<td><?= $fetch['name']?></td>
 			<td><?= $fetch['upload_by']?></td>
-			<td><a href="download_study_material.php?id=<?= $fetch['id']?>" class="btn btn-sm btn-blue"><i class="fas fa-cloud-download-alt"></i></a>
+			<td><a href="download_study_material.php?id=<?= $fetch['id']?>" class="btn btn-sm btn-blue" title="Click here to download study material"><i class="fas fa-cloud-download-alt"></i></a>
 				<?php if($_SESSION['status'] == 'admin'){?>
-					<a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
-				<?php }else{ if($_SESSION['username'] == $fetch['upload_by']){?><a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a><?php } }?></td><!-- delete button-->
+					<a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Delete Study-material"><i class="far fa-trash-alt"></i></a>
+				<?php }else{ if($_SESSION['username'] == $fetch['upload_by']){?><a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Delete Study-material"><i class="far fa-trash-alt"></i></a><?php } }?></td><!-- delete button-->
 		</tr>
 		<?php
 			}

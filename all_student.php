@@ -44,8 +44,8 @@
 <div class="card p-4">
 	
 		<div class="btn-group mx-auto" role="group">
-			  <a  type="button" class="btn btn-grey" href="add_student.php" >Your Students</a>
-			  <a  type="button" class="btn btn-green" href="all_student.php">All students</a>
+			  <a  type="button" class="btn btn-grey" href="add_student.php" title="Click here to view your student">Your Students</a>
+			  <a  type="button" class="btn btn-green" href="all_student.php" title="Click here to view student list">All students</a>
 		</div>
 		
 <div id="table" class="table-responsive-sm">
@@ -87,12 +87,12 @@
 					if($_SESSION['status'] == 'admin'){
 				?>
 				<!-- button redirect to update student page -->
-				<a href="update_student.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>&lname=<?= $fetch['lname']?>&gender=<?= $fetch['gender']?>&b_date=<?= $fetch['b_date']?>&c_id=<?= $fetch['c_id']?>&year=<?= $fetch['year']?>"  onclick="if(confirm('Are you sure you want to update student data ?')) return true; else return false;" class="btn btn-sm btn-mdb-color"><i class="fas fa-pen-nib"></i></a>
+				<a href="update_student.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>&lname=<?= $fetch['lname']?>&gender=<?= $fetch['gender']?>&b_date=<?= $fetch['b_date']?>&c_id=<?= $fetch['c_id']?>&year=<?= $fetch['year']?>"  onclick="if(confirm('Are you sure you want to update student data ?')) return true; else return false;" class="btn btn-sm btn-mdb-color" title="Click here to update student information"><i class="fas fa-pen-nib"></i></a>
 
 				<!-- button links to delete student page after confermation -->
-				<a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+				<a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Remove Student"><i class="fas fa-trash-alt"></i></a>
 				<?php  } ?>
-				<a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+				<a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" class="btn btn-sm btn-dark" title="Click here to view all assignment"><i class="fas fa-eye"></i></a>
 			</td>
 		</tr>
 	<?php  } /// while loop end ////  ?>

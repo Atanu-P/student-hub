@@ -103,7 +103,7 @@
 						<td><?= $i++?></td>
 						<td><?= date_format(date_create($fetch['date']),"d-m-Y g:i A");?></td>
 						<td><?= $fetch['filename']?></td>			
-						<td><a href="download.php?f_id=<?= $fetch['f_id']?>"  class="btn btn-sm btn-mdb-color" ><i class="fas fa-download"></i></a></td>
+						<td><a href="download.php?f_id=<?= $fetch['f_id']?>"  class="btn btn-sm btn-mdb-color" title="Click here to dowload assignment" ><i class="fas fa-download"></i></a></td>
 					</tr>
 					<?php } ?>
 				</tbody>
