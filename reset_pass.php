@@ -5,12 +5,12 @@
 
 
 	if(isset($_POST['submit'])){
-		$oldpass = md5($_POST['oldpass']);
-		$newpass = md5($_POST['newpass']);
-		$conpass = md5($_POST['conpass']);
+		$oldpass = md5($_POST['oldpass']);		// old password
+		$newpass = md5($_POST['newpass']);		// new password
+		$conpass = md5($_POST['conpass']);		// confirm password
 
-		$id = $_SESSION['admin'];
-		$status = $_SESSION['status'];
+		$id = $_SESSION['admin'];							// admin id
+		$status = $_SESSION['status'];				// admin role or status
 
 		$select = "select * from admin where id='$id' and status='$status'";
 		$query = mysqli_query($con, $select);
@@ -53,13 +53,13 @@
     <title>S-Hub | Change Password</title>
   </head>
   <body>
-	<div class="container">
-		<div class="row justify-content-center">
+	<div class="container">		<!-- bootstrap container -->
+		<div class="row justify-content-center">		<!-- bootstrap container row -->
 			<div class="col-sm-6">
 				<div class="card p-4 mb-4 mt-5">
 					<h5 class="card-title text-center mb-5">Change Password</h5>
 		
-					<form method="post">
+					<form method="post">		<!-- bootstrap form -->
 					<div class="form-row">	
 						<div class="form-group col">	
 							<label for="" class="sr-only">Old-password :</label>
@@ -82,11 +82,11 @@
 					<button type="submit" name="submit" class="btn btn-primary btn-block">Update password</button>
 						
 					
-					</form>
+					</form>				<!-- bootstrap form end -->
 				</div>
 			</div>
-		</div>
-	</div>
+		</div>		<!-- bootstrap container row end -->
+	</div>		<!-- bootstrap container end-->
 <?php include "script.php";?>
 
 </body>

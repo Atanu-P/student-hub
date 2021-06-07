@@ -4,5 +4,5 @@
 	if(!ISSET($_SESSION['admin'])){
 		header("location: index.php");
 	}
-	//if session variable not set it redirect to index page(login form)
+	//if session variable for admin not set it redirect to index page(login form)
 ?>

@@ -3,29 +3,40 @@
 	require_once 'conn.php';
 
 	# update student details
-	$getid = $_GET['id'];
+	$getid = $_GET['id'];										// get student old id
 
 	if(isset($_POST['submit'])){
-		$id = $_POST['id'];
-		$fname = ucfirst($_POST['fname']);
-		$lname = ucfirst($_POST['lname']);
-		$gender = $_POST['gender'];
-		$bdate = $_POST['b_date'];
-		$cid = $_POST['c_id'];
-		$year = $_POST['year'];
-		$pass = md5(strtolower($_POST['lname'])."".$_POST['id']);
-		$teacher = $_POST['teacher'];
+		$id = $_POST['id'];										// updated student id
+		$fname = ucfirst($_POST['fname']);		// updated student firstname
+		$lname = ucfirst($_POST['lname']);		// updated student lastname
+		$gender = $_POST['gender'];						// updated student gender
+		$bdate = $_POST['b_date'];						// updated student birthdate
+		$cid = $_POST['c_id'];								// updated student course
+		$year = $_POST['year'];								// updated student academic year
+		$pass = md5(strtolower($_POST['lname'])."".$_POST['id']);		// updated student password
+		$teacher = $_POST['teacher'];																// updated teacher 
 
-		$oldid=  $_GET['id'];
-		$s_name =  $fname." ".$lname;
+		$oldid=  $_GET['id'];									// get student old id
+		$s_name =  $fname." ".$lname;					// student full name
 		
+		$old_name = $_POST['s_name'];					// old student name
+
+		// update records in student table
 		$update = "update student set id='$id', fname='$fname', lname='$lname', gender='$gender', b_date='$bdate', c_id='$cid', year='$year', pass='$pass', teacher='$teacher' where id='$getid' ";
 		
+		// update records in student assignment table
 		$update2 = "update storage set s_id='$id', s_name='$s_name', c_id='$cid' where s_id='$oldid'";
 		
 		$query = mysqli_query($con, $update) or die(mysqli_error($con));
 		$query2 = mysqli_query($con, $update2) or die(mysqli_error($con));
-		if($query == 1){
+		if($query == 1 ){
+			
+			#rename foldername in directory
+
+			if(file_exists("files/".$oldid."_".$old_name)){
+				rename("files/".$oldid."_".$old_name,"files/".$id."_".$s_name);
+			}
+
 			header('location:add_student.php');
 			#echo   "<script>
 			#			window.location.href='add_student.php';
@@ -66,9 +77,9 @@
 	<?php
 	include_once "nav_admin.php";
 	?>	
-	<div class="container">
+	<div class="container">		<!-- bootstrap container start -->
 	<div class="card p-4 mb-4 mt-2">
-	<div class="row">
+	<div class="row">					<!-- bootstrap container row -->
 	<div class="col" align="center">
 		
 		<h4 class="card-title">Student details</h1>
@@ -97,9 +108,9 @@
 			</tbody>
 		</table>
 		<hr>
-	</div></div></div></div>
+	</div></div></div></div> <!-- bootstrap container end-->
 
-	<div class="container">
+	<div class="container">		<!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
 		<h5 class="card-title text-center">Update Student details</h5>
 	<!-- Add student form -->
@@ -175,10 +186,15 @@
 		<!--Password :
 		<input type="Password" name="pass" required=""><br>-->
 	</div>
-	
+		<?php
+			$select = mysqli_query($con,"select * from storage where s_id='$getid'");
+			$arr = mysqli_fetch_array($select);
+		?>
+		<input type="hidden" name="s_id" value="<?= $arr['id']?>">
+		<input type="hidden" name="s_name" value="<?= $arr['s_name']?>">
 		<button type="submit" name="submit" class="btn btn-sm btn-mdb-color btn-block" onclick="if(confirm('Do you want to save this student data ?')) return true; else return false;">Update Student</button>
 	</form>
-	</div>
+	</div>		<!-- bootstrap container end -->
 
 
 <?php include "script.php";?>

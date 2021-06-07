@@ -2,8 +2,8 @@
 	require 'session_validator.php';
 	require_once 'conn.php';
 
-	$id = $_GET['id'];
-	$fname = $_GET['fname'];
+	$id = $_GET['id'];				// get student id
+	$fname = $_GET['fname'];	// get student first name
 
 	$query = mysqli_query($con, "select * from student where id='$id'");
 	$fetch_detail = mysqli_fetch_array($query);
@@ -40,9 +40,9 @@
 	include_once "nav_admin.php";
 	?>	
 
-	<div class="container">
+	<div class="container">				<!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
-		<div class="row">
+		<div class="row">						<!-- bootstrap container row -->
 		<div class="col" align="center">
 		<h4 class="card-title text-center"><?= $fetch_detail['fname'].'-'.$fetch_detail['lname']?></h4>
 					
@@ -73,14 +73,14 @@
 			</tbody>
 		</table>
 		</div>
-		</div>		
+		</div>		<!-- bootstrap container row end-->
 	</div>	
-	</div>	
+	</div>			<!-- bootstrap container end -->
 
 
-<div class="container">
+<div class="container">				<!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
-		<div class="row">
+		<div class="row">					<!-- bootstrap container row -->
 		<div class="col" >
 		<h4 class="card-title text-center">Submitted Assignment</h4>
 			<table class="table  table-bordered table-sm  table-hover" align="center" cellpadding="9" border="1">
@@ -109,9 +109,9 @@
 				</tbody>
 			</table>
 			</div>
-			</div>		
+			</div>		<!-- bootstrap container row end -->		
 		</div>	
-	</div>	
+	</div>				<!-- bootstrap container end -->
 <?php include "script.php";?>
 
 </body>

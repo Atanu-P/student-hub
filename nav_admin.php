@@ -1,4 +1,9 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark unique-color" id="adminNavbar">
+<?php
+		$location = basename($_SERVER['REQUEST_URI']);		// Uniform Resource Identifier of navbar page
+
+		//echo $location;
+?>
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark unique-color" id="adminNavbar">		<!-- bootstrap nav bar -->
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
   			<span class="navbar-toggler-icon"></span>	
   		</button>
@@ -6,16 +11,16 @@
   		<div class="collapse navbar-collapse" id="navbar">
   			<ul class="navbar-nav mr-auto mt-lg-0">
   				
-  				<li class="nav-item">
+  				<li class="nav-item <?= ($location=="add_student.php")? 'active' : '';?>">
   					<a class="nav-link" href="add_student.php">Student</a>
   				</li>
-  				<li class="nav-item">
+  				<li class="nav-item <?= ($location=="add_study_material.php")? 'active' : '';?>">
   					<a class="nav-link" href="add_study_material.php">Study Material</a>
   				</li>
-  				<li class="nav-item">
+  				<li class="nav-item <?= ($location=="view.php")? 'active' : '';?> ">
   					<a class="nav-link" href="view.php">Assignment List</a>
   				</li>
-  				<li class="nav-item">
+  				<li class="nav-item <?= ($location=="v_call.php")? 'active' : '';?>">
   					<a class="nav-link" href="v_call.php">Live Chat</a>
   				</li>
   			</ul>
@@ -25,7 +30,7 @@
   			</span>
   			
   		</div></div>
-  	</nav>
+  	</nav>		<!-- bottstrap nav bar end -->
 
 <!--h1>Add student page</h1-->
 	<div class="container">

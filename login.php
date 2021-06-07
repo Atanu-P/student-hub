@@ -3,8 +3,8 @@
 	require 'conn.php';
 
 	if(isset($_POST['submit'])){
-		$user = $_POST['username'];
-		$pass = md5($_POST['pass']);
+		$user = $_POST['username'];		// admin username
+		$pass = md5($_POST['pass']);	//admin password
 
 		$query = mysqli_query($con, "select * from admin where username = '$user' and pass ='$pass'") or die(mysqli_error());
 		$array = mysqli_fetch_array($query);
@@ -16,10 +16,10 @@
 		if($row > 0){
 
 			//session variable
-			$_SESSION['admin'] = $array['id'];
-			$_SESSION['status'] = $array['status'];
-			$_SESSION['username'] = $array['username'];
-			header("location:home.php");
+			$_SESSION['admin'] = $array['id'];			// admin id
+			$_SESSION['status'] = $array['status'];		//	admin status or role
+			$_SESSION['username'] = $array['username'];	//  admin username
+			header("location:home.php");				
 			echo "<script> alert('Loged in');</script>";
 		} else {
 			echo "<script> alert('Invalid username or password');

@@ -34,19 +34,19 @@
 	include_once "nav_admin.php";
 	?>
 
-	<div class="container">
+	<div class="container">		<!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
-	<div class="row">
+	<div class="row">		<!-- bootstrap container row -->
 	<div class="col">
 		<h4 class="card-title text-center ">Welecome <?= ucfirst($_SESSION['username']) ?></h4>
 		<?php
-			if($_SESSION['status'] == 'admin'){
+			if($_SESSION['status'] == 'admin'){ /// this instruction only for admin
 		?>
 		
 		<p class="note note-primary">As an admin you can add new admin/ teacher or delete them .you can later change the role of admin in Add admin button.</p>
 		<p class="note note-secondary">You can change your admin password and username.<p>
 		<?php
-			}else{
+			}else{  /// this instruction only for teacher
 		?>
 		<p class="note note-primary">As a teacher you can change your password and username.<p>
 
@@ -56,9 +56,9 @@
 		<p class="note note-secondary">You can register a new student and later update student details in the student tab. you can view student assignment which is upload by the student.</p>
 		<p class="note note-primary">You can upload new study material for the student in the study material tab or view material uploaded by other admin or teacher.</p>
 	</div>
+	</div>	<!-- bootstrap container row end -->
 	</div>
-	</div>
-	</div>
+	</div>	<!-- bootstrap container end -->
 
 	<?php include "script.php";?>
 

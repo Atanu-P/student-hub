@@ -3,20 +3,22 @@
 	require_once 'conn.php';
 
 	if(isset($_POST['submit'])){
-		$fname = ucfirst($_POST['fname']);
-		$lname = ucfirst($_POST['lname']);
-		$user = strtolower($_POST['user']);
+		$fname = ucfirst($_POST['fname']);		//	uppercase first of new firstname
+		$lname = ucfirst($_POST['lname']);		//	uppercase first of new last name
+		$user = strtolower($_POST['user']);		//  lower case of username of new admin
 
-		$id = $_SESSION['admin'];
-		$status = $_SESSION['status'];
-		$olduser = $_POST['olduser'];
+		$id = $_SESSION['admin'];							//  admin id from session variable
+		$status = $_SESSION['status'];				//  admin role or status from session variable
+		$olduser = $_POST['olduser'];					//  old username of admin
 
-		$update = "update admin set fname='$fname', lname='$lname', username='$user' where id='$id' and status='$status'";
+		//  update in admin table
+		$update = "update admin set fname='$fname', lname='$lname', username='$user' where id='$id' and status='$status'";		
+		//  update in study material table
 		$update2 = "update material set upload_by='$user' where upload_by='$olduser'";
 		$query = mysqli_query($con, $update) or die(mysqli_error($con));
 		$query2 = mysqli_query($con, $update2) or die(mysqli_error($con));
 		if($query == 1){
-			$_SESSION['username'] = $user;
+			$_SESSION['username'] = $user;			// store new username in session variable
 			header('location:home.php');
 
 		}
@@ -36,12 +38,12 @@
   </head>
   <body>
 
-	<div class="container">
-		<div class="row justify-content-center">
+	<div class="container">		<!-- bootstrap container -->
+		<div class="row justify-content-center">		<!-- bootstrap container row -->
 			<div class="col-sm-6">
 				<div class="card p-4 mb-4 mt-5">
 					<h5 class="card-title text-center mb-5">Update Admin</h5>
-						<form method="post">
+						<form method="post">		<!-- bootstrap form for update admin information-->
 							<div class="form-row">	
 								<div class="form-group col">
 									<label for="" class="sr-only">First Name :</label>
@@ -64,11 +66,11 @@
 									<br>
 									<button type="submit" name="submit" class="btn btn-primary btn-block">Update</button>
 
-							</form>
+							</form>		<!-- bootstrap form end -->
 					</div>
 				</div>
-			</div>
-		</div>
+			</div>		<!-- bootstrap container row end -->
+		</div>		<!-- bootstrap container end -->
 <?php include "script.php";?>
 </body>
 </html>

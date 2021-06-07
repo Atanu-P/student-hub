@@ -36,11 +36,11 @@
 	
 <!--button>Add Student</button-->
 
-<div class="container">
+<div class="container">		<!-- bootstrap container start -->
 	
 
 <!--hr-->
-<div class="row"><div class="col">
+<div class="row"><div class="col">		<!-- bootstrap container row -->
 <div class="card p-4">
 	
 		<div class="btn-group mx-auto" role="group">
@@ -48,10 +48,10 @@
 			  <a  type="button" class="btn btn-green" href="all_student.php" title="Click here to view student list">All students</a>
 		</div>
 		
-<div id="table" class="table-responsive-sm">
+<div id="table" class="table-responsive-sm">		
 	<h5 class="card-title text-center mt-4">List of all students</h5>
 <!-- Display student data in table formate -->
-<table id="stu_table" class="table table-striped table-bordered table-sm"  border="2px" >
+<table id="stu_table" class="table table-striped table-bordered table-sm"  border="2px" >		<!-- bootstrap table start-->
 	<thead class="thead-dark">
 		<tr align="center">
 			<th class="th-sm">Stu Id</th>
@@ -97,10 +97,11 @@
 		</tr>
 	<?php  } /// while loop end ////  ?>
 	</tbody>
-</table>
+</table>		<!-- bootstrap table end -->
 </div>
 </div>
-</div></div>
+</div></div>		<!-- bootstrap container row end -->
+
 
 <?php include "script.php";?>
 <script type="text/javascript">

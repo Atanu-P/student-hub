@@ -5,7 +5,7 @@
 		//header(); redirect to that page if not login
 		echo "<script>
 				alert('Your are not logged in.');
-				window.location.href='student_login.php';
+				window.location.href='index.php';
 		</script>";
 	}
 	
@@ -47,9 +47,9 @@
 	$fetch = mysqli_fetch_array($query);
 ?>
 
-<div class="container mt-4">
+<div class="container mt-4">		<!-- bootstrap container -->
 	
-		<div class="row">
+		<div class="row">						<!-- bootstrap container row -->
 		<div class="col-md-5" >
 			<div class="card p-4 mb-4">
 			<h3 class="text-center"><?= $fetch['fname']." ".$fetch['lname']?></h3><hr>
@@ -81,14 +81,14 @@
 		</div>
 		</div>
 
-		<div class="col-md-7" >
+		<div class="col-md-7" >					
 			<div class="card p-4 mb-4">
 				<h4 class="card-title text-center">Your Assignments</h4>
 			<table  class="table table-striped table-bordered table-sm" border="1">
 				<thead class="thead-dark">
 					<tr align="center">
 						<th></th>
-						<th>Filname</th>
+						<th>Filename</th>
 						<th>Date</th>
 						<th>Other options</th>
 					</tr>
@@ -98,23 +98,23 @@
 						$id = $fetch['id']; //fetching student id from student table
 						$query = mysqli_query($con, "select * from storage where s_id='$id'");
 						$i = 1;
-						while($fetch = mysqli_fetch_array($query)){
+						while($fetch = mysqli_fetch_array($query)){			/// while loop start  ///
 					?>
 					<tr ><!-- fetching data from storage table-->
 						<td><?= $i++ ?></td>
 						<td><?= $fetch['filename']?></td>
 						<td align="center"><?= date_format(date_create($fetch['date']),"d-m-Y")?></td>
-						<td align="center"><a href="download.php?f_id=<?= $fetch['f_id']?>" class="btn btn-sm btn-grey"><i class="fas fa-cloud-download-alt"></i></a> <a href="remove_file.php?f_id=<?= $fetch['f_id']?>" onclick="if(confirm('Are you sure you want to delete file ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="fas fa-trash"></a></td> <!-- dowload file link & Removefile link-->
+						<td align="center"><a href="download.php?f_id=<?= $fetch['f_id']?>" class="btn btn-sm btn-grey"><i class="fas fa-cloud-download-alt"><!-- download button --></i></a> <a href="remove_file.php?f_id=<?= $fetch['f_id']?>" onclick="if(confirm('Are you sure you want to delete file ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="fas fa-trash"><!-- remove button --></a></td> <!-- dowload file link & Removefile link-->
 					</tr>
 					<?php
-						}
+						}		/// while loop start  ///
 					?>
 				</tbody>
 			</table>
 			</div>
 		</div>
-	</div>
-</div>
+	</div>		<!-- bootstrap container row end -->
+</div>		<!-- bootstrap container end -->
 <?php include "script.php";?>
 
 </body>

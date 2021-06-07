@@ -47,10 +47,10 @@
 		include_once "nav_admin.php";
 	?>
 
-<div class="container">
+<div class="container"> <!-- bootstrap container -->
 	<div class="card p-4 mb-4">
 		<h5 class="card-title text-center">Add Admin or Teacher</h5>
-			<form method="post">
+			<form method="post"> <!-- bootstrap form -->
 			<div class="form-row">
 			<div class="form-group col-sm-4">	
 				<label for="" class="sr-only">First Name :</label>
@@ -72,18 +72,18 @@
 				<button type="submit" name="submit" class="btn btn-sm btn-mdb-color ">Add</button>
 			</div>
 			</div>	
-			</form>
+			</form>  <!-- bootstrap form end-->
 		</div>	
-	</div>
+	</div> <!-- bootstrap container end-->
 
 
 
-<div class="container">
+<div class="container"> <!-- bootstrap container -->
 	<div class="card p-4 mb-4">
 		<div class="row justify-content-center">
 		<div class="col-sm-10 ">
 			<h5 class="card-title text-center">List of Admin / Teacher</h5>
-			<table class="table table-striped table-bordered table-sm" >
+			<table class="table table-striped table-bordered table-sm" > <!-- bootstrap table -->
 				<thead class="thead-dark">
 					<tr align="center">
 						<th>Name</th>
@@ -94,20 +94,20 @@
 				<tbody>
 				<?php
 					$query = mysqli_query($con, "select * from admin where id>1") or die(mysqli_error($con));
-					while ($fetch = mysqli_fetch_array($query)) {
+					while ($fetch = mysqli_fetch_array($query)) {  /// while loop start ////
 				?>
 					<tr align="center">
 						<td><?= $fetch['fname']." ".$fetch['lname'] ?></td>
 						<td><?= $fetch['status'] ?></td>
-						<td><a href="admin_role.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to change the role ?')) return true; else return false;" class="btn btn-sm btn-blue">Change role</a>  <a href="delete_admin.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to delete ?')) return true; else return false;" class="btn btn-sm btn-danger">Remove</a></td>
+						<td><a href="admin_role.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to change the role ?')) return true; else return false;" class="btn btn-sm btn-blue">Change role</a>  <a href="delete_admin.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to delete ?')) return true; else return false;" class="btn btn-sm btn-danger">Remove</a></td> <!-- change role & delete button -->
 					</tr>
-				<?php } ?>
+				<?php }  /// while loop end ////  ?>
 				</tbody>
-			</table>
+			</table>  <!-- bootstrap table end -->
 		</div>
 		</div>
 	</div>
-</div>
+</div>  <!-- bootstrap container end-->
 <?php include "script.php";?>
 
 </body>

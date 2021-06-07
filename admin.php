@@ -6,7 +6,7 @@
 		$lname = ucfirst($_POST['lname']);
 		$user = strtolower($_POST['user']);
 		$pass = md5($_POST['pass']);
-		$role = 'admin';
+		$role = 'teacher';									// new admin can only registered as teacher  not as master admin
 		$query = mysqli_query($con, "insert into admin values('','$fname','$lname','$user','$pass','admin')") or die(mysqli_error($con));
 
 		if($query == 1){
@@ -29,20 +29,20 @@
     <title>S-HUB | Sign-Up</title>
   </head>
   <body>
-  	<div class="container">
-  		<div class="row justify-content-center">
+  	<div class="container">		 <!-- bootstrap container start -->
+  		<div class="row justify-content-center">		 <!-- bootstrap container row -->
 			<div class="col-sm-6">
 				<div class="card p-4 mb-4 mt-5">
 					<h1 class="h1-responsive" align="center">Student-HUB</h1>
 				</div>
 			</div>
-		</div>
-		<div class="row justify-content-center">
+		</div>		 <!-- bootstrap container row end -->
+		<div class="row justify-content-center">		 <!-- bootstrap container row -->
 			<div class="col-sm-6">
 				<div class="card p-4 mb-4 mt-5">
 					<h5 class="card-title text-center mb-5">Admin Sign-Up</h5>
 						
-					<form method="post">
+					<form method="post">		 <!-- bootstrap foem start -->
 					<div class="form-row">	
 						<div class="form-group col">	
 							<label for="" class="sr-only">First Name :</label>
@@ -72,11 +72,11 @@
 					<button type="submit" name="submit" class="btn btn-primary btn-block">Sign-Up</button>
 						
 					
-					</form>
+					</form>		 <!-- bootstrap form end -->
 				</div>
 			</div>
-		</div>
-	</div>
+		</div>		 <!-- bootstrap container row end -->
+	</div>		 <!-- bootstrap container end -->
 
   <?php include_once "script.php";?>
 </body>

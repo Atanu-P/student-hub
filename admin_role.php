@@ -35,12 +35,12 @@
   </head>
   <body>
 
-  	<div class="container">
-		<div class="row justify-content-center">
+  	<div class="container">		<!-- bootstrap container start -->
+		<div class="row justify-content-center">		<!-- bootstrap container row -->
 			<div class="col-sm-6">
 				<div class="card p-4 mb-4 mt-5">
 					<h5 class="card-title text-center mb-5">Change Role of <?= $username?></h5>
-					<form method="post">
+					<form method="post">		<!-- bootstrap form start -->
 						<div class="form-row">	
 						<div class="form-group col">
 							<label for="" class="sr-only">Select role</label>
@@ -52,11 +52,11 @@
 						</div>
 						</div>
 						<button type="submit" name="submit" class="btn btn-primary btn-block">Update</button>
-					</form>
+					</form>		<!-- bootstrap form end -->
 				</div>
 			</div>
-		</div>
-	</div>
+		</div>		<!-- bootstrap container row end -->
+	</div>		<!-- bootstrap container end -->
 
 <?php include "script.php";?>
 

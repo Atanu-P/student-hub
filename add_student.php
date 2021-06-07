@@ -36,12 +36,12 @@
 	
 <!--button>Add Student</button-->
 
-<div class="container">
+<div class="container">  <!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
 		<h5 class="card-title text-center">Add New Student</h5>
 	<!-- Add student form -->
-	<form action="" method="POST">
-	<div class="form-row">
+	<form action="" method="POST">  <!-- bootstrap form start -->
+	<div class="form-row">          <!-- bootstrap form row -->
 		<div class="form-group col-md-4">
 			<label for="" class="sr-only">Student no :</label>
 			<input type="number" name="id" class="form-control form-control-sm" placeholder="Stu Id" required="required">
@@ -54,8 +54,8 @@
 			<label for="" class="sr-only">Last Name :</label>
 			<input type="text" name="lname" class="form-control form-control-sm" placeholder="Last Name" required="">
 		</div><br>
-	</div>
-	<div class="form-row">
+	</div>  <!-- bootstrap form row end -->
+	<div class="form-row">  <!-- bootstrap form row start -->
 		<div class="form-group col-md-3">
 			<label for="" class="sr-only">Gender :</label>
 			<select name="gender" class="form-control form-control-sm" required="">
@@ -98,10 +98,10 @@
 		</div>
 		<!--Password :
 		<input type="Password" name="pass" required=""><br>-->
-	</div>
+	</div>  <!-- bootstrap form row end -->
 	
 		<button type="submit" name="submit" class="btn btn-sm btn-info btn-block">Add Student</button>
-	</form>
+	</form>  <!-- bootstrap form end -->
 	</div>
 <?php //insert student detail to db
 	#require_once 'conn.php';
@@ -127,7 +127,8 @@
 	//var_dump($insert);
 ?>
 <!--hr-->
-<div class="row"><div class="col">
+<div class="row"> <!-- bootstrap container row -->
+<div class="col">
 <div class="card p-4">
 	
 		<div class="btn-group mx-auto" role="group">
@@ -138,7 +139,7 @@
 <div id="table" class="table-responsive-sm">
 	<h5 class="card-title text-center mt-4">Your Students</h5>
 <!-- Display student data in table formate -->
-<table id="stu_table" class="table table-striped table-bordered table-sm"  border="2px" >
+<table id="stu_table" class="table table-striped table-bordered table-sm"  border="2px" > <!-- bootstrap table -->
 	<thead class="thead-dark">
 		<tr align="center">
 			<th class="th-sm">Stu Id</th>
@@ -180,10 +181,10 @@
 		</tr>
 	<?php  } /// while loop end ////  ?>
 	</tbody>
-</table>
+</table>  <!-- bootstrap table end -->
 </div>
 </div>
-</div></div>
+</div></div>  <!-- bootstrap container row end -->
 
 <?php include "script.php";?>
 <script type="text/javascript">

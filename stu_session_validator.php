@@ -6,7 +6,7 @@
 		//header(); redirect to that page if not login
 		echo "<script>
 				alert('Your are not logged in.');
-				window.location.href='student_login.php';
+				window.location.href='index.php';
 		</script>";
 	}
 ?>

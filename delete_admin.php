@@ -1,5 +1,5 @@
 <?php
-	
+	#delete admin 
 	require_once 'conn.php';
 
 	$id = $_GET['id'];

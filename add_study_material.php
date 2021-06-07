@@ -5,21 +5,21 @@
 	// save material by admin 
 	if(isset($_POST['save'])){	
 		
-		$c_id = $_POST['c_id'];						  	// course id
-		$title = $_POST['title'];						// title or topic name
-		$username = $_SESSION['username'];
+		$c_id = $_POST['c_id'];						  				// course id
+		$title = $_POST['title'];										// title or topic name
+		$username = $_SESSION['username'];					// username in sessionvariable
 		$name = $_FILES['file']['name'];      			// file name
 		$type = $_FILES['file']['type'];      			// file type
 		$temp = $_FILES['file']['tmp_name'];  			// temp file name
 		$location = "material/".$c_id."/".$name; 		// directory for save file
-		$date = date("Y-m-d H:i:s");					// time stamp
+		$date = date("Y-m-d H:i:s");								// time stamp
 
 		if(!file_exists("material/".$c_id)){
-			mkdir("material/".$c_id, 0777, true); //
+			mkdir("material/".$c_id, 0777, true); 		// nested directory
 		}
 
 
-		if($type != "application/pdf"){
+		if($type != "application/pdf"){  // check if file is pdf or not
 			
 			//header('location:home.php');
 			echo "<script>
@@ -28,7 +28,7 @@
 			</script>"; //change the page redirect later
 		} else {
 
-			if(file_exists($location)){
+			if(file_exists($location)){  //check if file already exists or not
 				echo "<script>
 							alert('File already uploaded.');
 							window.location.href='add_study_material.php';
@@ -37,10 +37,10 @@
 				//header('location:student_profile.php');
 			} else {
 
-				if(move_uploaded_file($temp, $location)){
+				if(move_uploaded_file($temp, $location)){  // store file in directory and create entry in database
 					$insert = "insert into material values('','$name','$type','$title','$c_id','$date' ,'$username')";
 					mysqli_query($con, $insert);
-					header('location:add_study_material.php'); //change the page redirect later
+					header('location:add_study_material.php'); 
 				}
 			}
 
@@ -80,11 +80,11 @@
 		include_once "nav_admin.php";
 	?>
 
-<div class="container">
+<div class="container">  <!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
 		<h5 class="card-title text-center">Add study material</h5>
-		<form action="" method="post" enctype="multipart/form-data">
-			<div class="form-row">
+		<form action="" method="post" enctype="multipart/form-data">  <!-- bootstrap form start -->
+			<div class="form-row">		<!-- bootstrap form row -->
 				<div class="input-group input-group-sm col-md-4">
 					
   						<div class="custom-file">
@@ -123,17 +123,17 @@
 						<button name="save" class="btn btn-sm btn-mdb-color btn-block">Add File</button>
 					</div>
 				</div>
-			</div>
-		</form>
+			</div>  <!-- bootstrap form row end-->
+		</form>  <!-- bootstrap form end -->
 </div>
 </div>
 
-<div class="container">
+<div class="container">		<!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
-		<div class="row">
+		<div class="row">		<!-- bootstrap container row -->
 		<div class="col" >
 		<h4 class="card-title text-center">Study Materials List</h4>
-<table id="material" class="table table-striped table-bordered table-sm" border="1">
+<table id="material" class="table table-striped table-bordered table-sm" border="1">		<!-- bootstrap table start -->
 	<thead class="thead-dark" >
 		<tr align="center">
 			<th class="th-sm">Date</th>
@@ -148,7 +148,7 @@
 		<?php
 			
 			$query = mysqli_query($con, "select * from material");
-			while ($fetch = mysqli_fetch_array($query)) {
+			while ($fetch = mysqli_fetch_array($query)) {  /// while loop start ///
 		?>
 		<tr align="center">
 			<td><?= date_format(date_create($fetch['date']),"d-m-Y g:i A");?></td>
@@ -162,10 +162,10 @@
 				<?php }else{ if($_SESSION['username'] == $fetch['upload_by']){?><a href="remove_study_material.php?id=<?= $fetch['id']?>" onclick="if(confirm('Are you sure you want to remove this study material ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Delete Study-material"><i class="far fa-trash-alt"></i></a><?php } }?></td><!-- delete button-->
 		</tr>
 		<?php
-			}
+			}  /// while loop end ////
 		?>
 	</tbody>
-</table>
+</table>		<!-- bootstrap table end -->
 </div>
 </div>
 </div>

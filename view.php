@@ -34,9 +34,9 @@
 	include_once "nav_admin.php";
 	?>
 
-<div class="container">
+<div class="container">				<!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
-	<div class="row">
+	<div class="row">						<!-- bootstrap container row -->
 	<div class="col">
 		<h5 class="card-title text-center">Assignments submitted by students</h5>
 		<table id="viewAssignment"  class="table table-striped table-bordered table-sm" >
@@ -70,19 +70,16 @@
 			</tbody>
 		</table>
 	</div>
+	</div>		<!-- bootstrap container row end -->
 	</div>
-	</div>
-</div>
+</div>			<!-- bootstrap container end -->
 <?php include "script.php";?>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('#viewAssignment').DataTable();
 		$('.dataTables_length').addClass('bs-select');
 
-		$('#adminNavbar .navbar-nav a').on('click', function(){
-			$('#adminNavbar .navbar-nav').find('li.active').removeClass('active');
-			$(this).parent('li').addClass('active');
-		});
+		
 	});
 </script>
 </body>

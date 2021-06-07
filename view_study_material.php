@@ -41,15 +41,15 @@
 
   	<?php include_once "nav_stu.php"; ?>
 
-<?php
+<!--?php
 	$select = "select * from student where id='$_SESSION[student]'";
 	$query = mysqli_query($con, $select);
 	$fetch = mysqli_fetch_array($query);
-?>
+?-->
 
-<div class="container mt-4">
+<div class="container mt-4">		<!-- bootstrap container -->
 	<div class="card p-4 mb-4">
-		<div class="row">
+		<div class="row">						<!-- bootstrap container row -->
 		<div class="col">
 		<h4 class="card-title text-center">Study Material</h4>
 			<table class="table table-striped table-bordered table-sm" id="study_material">
@@ -66,7 +66,7 @@
 					<?php
 						$select = "select * from material";
 						$query = mysqli_query($con, $select);
-						while($fetch = mysqli_fetch_array($query)){
+						while($fetch = mysqli_fetch_array($query)){		/// while loop start ///
 					?>
 					<tr align="center">
 						<td><?= date_format(date_create($fetch['date']),"d-m-Y")?></td>
@@ -76,14 +76,14 @@
 						<td><a href="download_study_material.php?id=<?= $fetch['id']?>" class="btn btn-sm btn-mdb-color"><i class="fas fa-download"></i></a></td>		
 					</tr>
 					<?php
-						}
+						}		/// while loop start ///
 					?>
 				</tbody>
 			</table>
 		</div>
-		</div>
+		</div>		<!-- bootstrap container row end -->
 	</div>
-</div>
+</div>		<!-- bootstrap container end -->
 
 <?php include "script.php";?>
 <script type="text/javascript">
