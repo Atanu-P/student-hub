@@ -17,15 +17,16 @@
   				<li class="nav-item <?= ($location=="view_study_material.php")? 'active' : '';?>">
   					<a class="nav-link" href="view_study_material.php">Study Material</a>
   				</li>
-  				<li class="nav-item <?= ($location=="v_call_stu.php")? 'active' : '';?>">
+  				<!--li class="nav-item <?= ($location=="v_call_stu.php")? 'active' : '';?>">
   					<a class="nav-link" href="v_call_stu.php">Live Chat</a>
-  				</li>
+  				</li-->
   			</ul>
 
   			<span class="navbar-text white-text">
   				Logged in as <?= $_SESSION['name'] ?><a href="student_logout.php" onclick="if(confirm('Are you sure you want to logout ?')) return true; else return false;" class="btn btn-sm btn-danger">Logout</a>
+  				
   				<!-- link to student logout page after conformation -->
   			</span>
   			
-  		</div></div> <!-- bootstrap container end -->
+  		</div></div> <!-- bootstrap container end -->			
   	</nav>		<!-- bootstrap nav bar end -->

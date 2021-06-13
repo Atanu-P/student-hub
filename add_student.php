@@ -38,7 +38,7 @@
 
 <div class="container">  <!-- bootstrap container start -->
 	<div class="card p-4 mb-4">
-		<h5 class="card-title text-center">Add New Student</h5>
+		<h5 class="card-title text-center">Register New Student</h5>
 	<!-- Add student form -->
 	<form action="" method="POST">  <!-- bootstrap form start -->
 	<div class="form-row">          <!-- bootstrap form row -->
@@ -171,12 +171,12 @@
 			<td><?php echo $fetch['year'] ?></td>
 			<td>
 				<!-- button redirect to update student page -->
-				<a href="update_student.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>&lname=<?= $fetch['lname']?>&gender=<?= $fetch['gender']?>&b_date=<?= $fetch['b_date']?>&c_id=<?= $fetch['c_id']?>&year=<?= $fetch['year']?>"  onclick="if(confirm('Are you sure you want to update student data ?')) return true; else return false;" class="btn btn-sm btn-mdb-color" title="Click here to update student information">Update</a>
+				<a href="update_student.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>&lname=<?= $fetch['lname']?>&gender=<?= $fetch['gender']?>&b_date=<?= $fetch['b_date']?>&c_id=<?= $fetch['c_id']?>&year=<?= $fetch['year']?>"  onclick="if(confirm('Are you sure you want to update student data ?')) return true; else return false;" class="btn btn-sm btn-mdb-color" title="Click here to update student information"><i class="fas fa-pen-nib"></i></a>
 
 				<!-- button links to delete student page after confermation -->
-				<a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Remove Student">Delete</a>
+				<a href="delete_student.php?id=<?= $fetch['id'];?>" onclick="if(confirm('Are you sure you want to delete student data ?')) return true; else return false;" class="btn btn-sm btn-danger" title="Remove Student"><i class="fas fa-trash-alt"></i></a>
 				
-				<a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" class="btn btn-sm btn-dark" title="Click here to view all assignment">View Assignment</a>
+				<a href="view_stu_assignment.php?id=<?= $fetch['id']?>&fname=<?= $fetch['fname']?>" target="_blank" class="btn btn-sm btn-dark" title="Click here to view all assignment"><i class="fas fa-eye"></i></a>
 			</td>
 		</tr>
 	<?php  } /// while loop end ////  ?>

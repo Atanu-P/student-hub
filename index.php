@@ -24,7 +24,7 @@
     		<div class="col-sm text-center">
     			<!-- admin or teacher login form-->
 				<form action="login.php" method="POST" class="form-signin">
-					<img class="mb-4" src="svgs\solid\portrait.svg" alt="" width="72" height="72" align="center">
+					<img class="mb-4" src="svgs\portrait.svg" alt="" width="72" height="72" align="center">
 					<h1 class="h3 mb-3 font-weight-normal">Adminstrator / Teacher Log-In</h1>
 					<label for="" class="sr-only">Username :</label>
 					<input type="Username" name="username" placeholder="Username" class="form-control" required autofocus><br>
@@ -36,7 +36,7 @@
     		<div class="col-sm text-center">
     			<!-- student login form-->
 				<form action="student_login.php" method="post" class="form-signin">
-					<img class="mb-4" src="svgs\solid\user-friends.svg" alt="" width="72" height="72" align="center">
+					<img class="mb-4" src="svgs\user-friends.svg" alt="" width="72" height="72" align="center">
 					<h1 class="h3 mb-3 font-weight-normal">Student Log-In</h1>
 					<label for="" class="sr-only">Student Id : </label>
 					<input type="number" name="id" placeholder="Student Id" class="form-control" required autofocus><br>

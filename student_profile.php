@@ -58,7 +58,7 @@
 			<h5 class="text-left" >Gender : <?= $fetch['gender']?></h5>
 			<h5 class="text-left">Birthdate : <?= $fetch['b_date']?></h5>
 			<h5 class="text-left">Course & Year : <?= $fetch['c_id']." - ".$fetch['year']?>th</h5>
-			<h5 class="text-left">Teacher : <?= $fetch['teacher']?></h5>
+			<h5 class="text-left">Registered by : <?= ucfirst($fetch['teacher'])?></h5>
 
 			<hr>
 			<!-- form for adding file by student -->
@@ -104,7 +104,7 @@
 						<td><?= $i++ ?></td>
 						<td><?= $fetch['filename']?></td>
 						<td align="center"><?= date_format(date_create($fetch['date']),"d-m-Y")?></td>
-						<td align="center"><a href="download.php?f_id=<?= $fetch['f_id']?>" class="btn btn-sm btn-grey"><i class="fas fa-cloud-download-alt"><!-- download button --></i></a> <a href="remove_file.php?f_id=<?= $fetch['f_id']?>" onclick="if(confirm('Are you sure you want to delete file ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="fas fa-trash"><!-- remove button --></a></td> <!-- dowload file link & Removefile link-->
+						<td align="center"><a href="download.php?f_id=<?= $fetch['f_id']?>" class="btn btn-sm btn-grey"><i class="fas fa-cloud-download-alt"></i></a> <a href="remove_file.php?f_id=<?= $fetch['f_id']?>" onclick="if(confirm('Are you sure you want to delete file ?')) return true; else return false;" class="btn btn-sm btn-danger"><i class="fas fa-trash"></a></td> <!-- dowload file link & Removefile link-->
 					</tr>
 					<?php
 						}		/// while loop start  ///

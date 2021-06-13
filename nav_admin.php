@@ -20,9 +20,9 @@
   				<li class="nav-item <?= ($location=="view.php")? 'active' : '';?> ">
   					<a class="nav-link" href="view.php">Assignment List</a>
   				</li>
-  				<li class="nav-item <?= ($location=="v_call.php")? 'active' : '';?>">
+  				<!--li class="nav-item <?= ($location=="v_call.php")? 'active' : '';?>">
   					<a class="nav-link" href="v_call.php">Live Chat</a>
-  				</li>
+  				</li-->
   			</ul>
 
   			<span class="navbar-text white-text">
