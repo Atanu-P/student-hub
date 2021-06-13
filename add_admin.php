@@ -12,7 +12,7 @@
 
 		$query = mysqli_query($con, "insert into admin values('','$fname','$lname','$user','$pass','$role')") or die(mysqli_error($con));
 
-		echo ($query == 1)? "inserted" : "retry";
+		//echo ($query == 1)? "inserted" : "retry";
 	}
 ?>
 <!doctype html>
@@ -93,7 +93,8 @@
 				</thead>
 				<tbody>
 				<?php
-					$query = mysqli_query($con, "select * from admin where id>1") or die(mysqli_error($con));
+					$username = $_SESSION['username'];
+					$query = mysqli_query($con, "select * from admin where not username='$username'") or die(mysqli_error($con));
 					while ($fetch = mysqli_fetch_array($query)) {  /// while loop start ////
 				?>
 					<tr align="center">
