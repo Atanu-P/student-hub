@@ -15,9 +15,13 @@
 		$update = "update admin set fname='$fname', lname='$lname', username='$user' where id='$id' and status='$status'";		
 		//  update in study material table
 		$update2 = "update material set upload_by='$user' where upload_by='$olduser'";
+		//  update in student table
+		$update3 = "update student set teacher='$user' where teacher='$olduser'";
+
 		$query = mysqli_query($con, $update) or die(mysqli_error($con));
 		$query2 = mysqli_query($con, $update2) or die(mysqli_error($con));
-		if($query == 1){
+		$query3 = mysqli_query($con, $update3) or die(mysqli_error($con));
+		if($query == 1 && $query2 == 1 && $query3 == 1){
 			$_SESSION['username'] = $user;			// store new username in session variable
 			header('location:home.php');
 
